@@ -65,8 +65,8 @@ static const struct arg args[] = {
 	/* function format          argument */	
 	{ run_command, "%s | ", "spotifyctl -q status --format 'Now Playing: %title%, %artist%'"},
 	{ run_command, "%s | ", "busctl --user -j get-property io.ntfd /weather openweathermap.strings RenderedTemplate | jq -r .data"},
-	{ run_command, "VOL: %s%% | ", "pamixer --get-volume"},
-	{ ram_perc, "RAM: %s%% | ",  NULL    },
-	{ cpu_perc, "CPU: %s%% | ",  NULL    },
+	{ run_command, " : %s%% | ", "pamixer --get-volume"},
+	{ ram_perc, " : %s%% | ",  NULL    },
+	{ cpu_perc, " : %s%% | ",  NULL    },
 	{ datetime, "%s",           "%F %T" },
 };
