@@ -62,8 +62,11 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ ram_perc, "RAM: %s%%  ",  NULL    },
-	{ cpu_perc, "CPU: %s%%  ",  NULL    },
+	/* function format          argument */	
+	{ run_command, "%s | ", "spotifyctl -q status --format 'Now Playing: %title%, %artist%'"},
+	{ run_command, "%s | ", "busctl --user -j get-property io.ntfd /weather openweathermap.strings RenderedTemplate | jq -r .data"},
+	{ run_command, "VOL: %s%% | ", "pamixer --get-volume"},
+	{ ram_perc, "RAM: %s%% | ",  NULL    },
+	{ cpu_perc, "CPU: %s%% | ",  NULL    },
 	{ datetime, "%s",           "%F %T" },
 };
